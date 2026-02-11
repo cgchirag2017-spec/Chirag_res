@@ -191,6 +191,155 @@
             font-size: 0.9rem;
         }
 
+        /* Navigation Tabs */
+        .nav-tabs {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            margin-top: -40px;
+        }
+
+        .nav-tabs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .nav-tabs-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 20px 30px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab-button:hover {
+            color: var(--primary);
+            background: rgba(0, 102, 255, 0.05);
+        }
+
+        .tab-button.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Video Tab Section */
+        .video-intro {
+            background: linear-gradient(to bottom, #ffffff 0%, var(--light) 100%);
+            padding: 80px 20px;
+        }
+
+        .video-intro-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+
+        .video-intro-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .video-intro-header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .video-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            position: relative;
+            background: #000;
+            transition: all 0.3s ease;
+        }
+
+        .video-wrapper:hover {
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .intro-video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Video placeholder/poster styling */
+        .video-placeholder {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-placeholder-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+
+        .video-placeholder-content .play-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .video-placeholder-content p {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
         /* Main Content */
         .container {
             max-width: 1200px;
@@ -538,6 +687,19 @@
                 flex-direction: column;
             }
 
+            .nav-tabs-container {
+                padding: 0 10px;
+            }
+
+            .tab-button {
+                padding: 15px 20px;
+                font-size: 0.9rem;
+            }
+
+            .video-intro {
+                padding: 60px 20px;
+            }
+
             .timeline {
                 padding-left: 30px;
             }
@@ -598,7 +760,6 @@
                         <a href="tel:9908016703" class="btn btn-primary">📞 +91-9908016703</a>
                         <a href="mailto:chirag2000@gmail.com" class="btn btn-outline">📧 Email: chirag2000@gmail.com</a>
                         <a href="https://linkedin.com/in/chhatbarchirag" target="_blank" class="btn btn-outline">💼 LinkedIn</a>
-    
                     </div>
                 </div>
             </div>
@@ -624,267 +785,319 @@
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="container">
-        <!-- About Section -->
-        <section id="about">
-            <h2 class="section-title">About Me</h2>
-            <div class="skills-grid">
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">📊</div>
-                    <h3>Marketing Analytics Leader</h3>
-                    <p>12+ years experience architecting data strategies, web analytics frameworks, and MarTech/AdTech integrations.</p>
-                </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">🎯</div>
-                    <h3>Drive Measurable ROI</h3>
-                    <p>Proven track record delivering results across enterprise organizations including Salesforce, Accenture, Google, and Meta.</p>
-                </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">👥</div>
-                    <h3>Cross-functional Leadership</h3>
-                    <p>Led teams to deliver data quality, attribution modeling, and performance insights.</p>
-                </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">🏆</div>
-                    <h3>Certified Expertise</h3>
-                    <p>7× Salesforce Certified with deep knowledge in CRM analytics and customer lifecycle optimization.</p>
-                </div>
-            </div>
-        </section>
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+        <div class="nav-tabs-container">
+            <button class="tab-button active" onclick="openTab(event, 'about-tab')">About</button>
+            <button class="tab-button" onclick="openTab(event, 'video-tab')">Video Introduction</button>
+            <button class="tab-button" onclick="openTab(event, 'skills-tab')">Skills</button>
+            <button class="tab-button" onclick="openTab(event, 'experience-tab')">Experience</button>
+            <button class="tab-button" onclick="openTab(event, 'certifications-tab')">Certifications</button>
+            <button class="tab-button" onclick="openTab(event, 'education-tab')">Education</button>
+        </div>
+    </nav>
 
-        <!-- Technical Skills -->
-        <section id="skills">
-            <h2 class="section-title">Technical Arsenal</h2>
-            <div class="skills-grid">
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">📈</div>
-                    <h3>Analytics Platforms</h3>
-                    <p>GA360, Google Tag Manager, BigQuery, Data Studio for comprehensive measurement and reporting.</p>
-                </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">☁️</div>
-                    <h3>Salesforce Ecosystem</h3>
-                    <p>Marketing Cloud, Sales Cloud, Service Cloud with 7× certifications and deep implementation expertise.</p>
-                </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">💾</div>
-                    <h3>Data Engineering</h3>
-                    <p>SQL, data engineering workflows, marketing automation, and AI-powered marketing innovation.</p>
-                </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">🎯</div>
-                    <h3>AdTech Integration</h3>
-                    <p>DFM, Sizmek, CM360, and complex Ad Tech stack integrations for enterprise clients.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Timeline -->
-        <section id="experience">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="timeline">
-                <!-- Providence India -->
-                <div class="timeline-item fade-in">
-                    <div class="timeline-header">
-                        <div>
-                            <p class="role">Digital Manager</p>
-                            <h3 class="company">Providence India</h3>
-                        </div>
-                        <span class="period">Current</span>
+    <!-- Tab Contents -->
+    <div class="container">
+        <!-- About Tab -->
+        <div id="about-tab" class="tab-content active">
+            <section id="about">
+                <h2 class="section-title">About Me</h2>
+                <div class="skills-grid">
+                    <div class="skill-card fade-in">
+                        <div class="skill-icon">📊</div>
+                        <h3>Marketing Analytics Leader</h3>
+                        <p>12+ years experience architecting data strategies, web analytics frameworks, and MarTech/AdTech integrations.</p>
                     </div>
-                    <ul class="achievements">
-                        <li>Led cross-functional team of 8-12 analysts and engineers in web analytics</li>
-                        <li>Strengthened frameworks, reducing reporting discrepancies by 30-40%</li>
-                        <li>Partnered with marketing stakeholders delivering insights for 15+ campaigns monthly</li>
-                        <li>Ensured data integrity across all digital properties</li>
-                    </ul>
-                </div>
-
-                <!-- Salesforce -->
-                <div class="timeline-item fade-in">
-                    <div class="timeline-header">
-                        <div>
-                            <p class="role">Senior Product Success</p>
-                            <h3 class="company">Salesforce</h3>
-                        </div>
-                        <span class="period">2021 - 2024</span>
+                    <div class="skill-card fade-in">
+                        <div class="skill-icon">🎯</div>
+                        <h3>Drive Measurable ROI</h3>
+                        <p>Proven track record delivering results across enterprise organizations including Salesforce, Accenture, Google, and Meta.</p>
                     </div>
-                    <ul class="achievements">
-                        <li>Guided 50+ enterprise customers through virtual Success programs</li>
-                        <li>Achieved 35% increase in Marketing Cloud feature adoption</li>
-                        <li>Delivered Blueprint best practices for Salesforce Marketing Cloud</li>
-                        <li>Provided technical guidance for Sales Cloud and Service Cloud implementations</li>
-                    </ul>
-                    <div class="metrics">
-                        <div class="metric">
-                            <div class="metric-value">90%</div>
-                            <div class="metric-label">Retention Rate</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">$2M+</div>
-                            <div class="metric-label">Annual Renewals</div>
-                        </div>
+                    <div class="skill-card fade-in">
+                        <div class="skill-icon">👥</div>
+                        <h3>Cross-functional Leadership</h3>
+                        <p>Led teams to deliver data quality, attribution modeling, and performance insights.</p>
+                    </div>
+                    <div class="skill-card fade-in">
+                        <div class="skill-icon">🏆</div>
+                        <h3>Certified Expertise</h3>
+                        <p>7× Salesforce Certified with deep knowledge in CRM analytics and customer lifecycle optimization.</p>
                     </div>
                 </div>
+            </section>
+        </div>
 
-                <!-- Assembly Global -->
-                <div class="timeline-item fade-in">
-                    <div class="timeline-header">
-                        <div>
-                            <p class="role">MarTech Team Lead</p>
-                            <h3 class="company">Assembly Global</h3>
+        <!-- Video Tab -->
+        <div id="video-tab" class="tab-content">
+            <section class="video-intro">
+                <div class="video-intro-header fade-in">
+                    <h2>Meet Chirag</h2>
+                    <p>Watch this brief introduction to learn more about my journey in marketing analytics and how I help businesses unlock the power of their data.</p>
+                </div>
+                <div class="video-wrapper fade-in">
+                    <!-- Replace 'intro-video.mp4' with your actual video file name -->
+                    <!-- Add a poster image (thumbnail) by creating a video-thumbnail.jpg -->
+                    <video controls poster="video-thumbnail.jpg" class="intro-video" preload="metadata">
+                        <source src="Intro_chirag.mp4" type="video/mp4">
+                        <source src="Intro_chirag.webm" type="video/webm">
+                        Your browser does not support the video tag.
+                    </video>
+                    
+                    <!-- Alternative: If you don't have a video yet, use this placeholder -->
+                    <!-- Uncomment the section below and comment out the <video> tag above -->
+                    <!--
+                    <div class="video-placeholder">
+                        <div class="video-placeholder-content">
+                            <div class="play-icon">▶</div>
+                            <p>Introduction Video Coming Soon</p>
                         </div>
-                        <span class="period">2020 - 2021</span>
                     </div>
-                    <ul class="achievements">
-                        <li>Led MarTech team of 5-7 specialists for 20+ complex Ad Tech stack integrations</li>
-                        <li>Defined data collection frameworks for 15+ clients</li>
-                        <li>Improved campaign deployment efficiency by 35%</li>
-                    </ul>
+                    -->
                 </div>
+            </section>
+        </div>
 
-                <!-- Accenture -->
-                <div class="timeline-item fade-in">
-                    <div class="timeline-header">
-                        <div>
-                            <p class="role">Analytics Lead</p>
-                            <h3 class="company">Accenture</h3>
+        <!-- Skills Tab -->
+        <div id="skills-tab" class="tab-content">
+            <section id="skills">
+                <h2 class="section-title">Technical Arsenal</h2>
+                <div class="skills-grid">
+                    <div class="skill-card fade-in">
+                        <div class="skill-icon">📈</div>
+                        <h3>Analytics Platforms</h3>
+                        <p>GA360, Google Tag Manager, BigQuery, Data Studio for comprehensive measurement and reporting.</p>
+                    </div>
+                    <div class="skill-card fade-in">
+                        <div class="skill-icon">☁️</div>
+                        <h3>Salesforce Ecosystem</h3>
+                        <p>Marketing Cloud, Sales Cloud, Service Cloud with 7× certifications and deep implementation expertise.</p>
+                    </div>
+                    <div class="skill-card fade-in">
+                        <div class="skill-icon">💾</div>
+                        <h3>Data Engineering</h3>
+                        <p>SQL, data engineering workflows, marketing automation, and AI-powered marketing innovation.</p>
+                    </div>
+                    <div class="skill-card fade-in">
+                        <div class="skill-icon">🎯</div>
+                        <h3>AdTech Integration</h3>
+                        <p>DFM, Sizmek, CM360, and complex Ad Tech stack integrations for enterprise clients.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Experience Tab -->
+        <div id="experience-tab" class="tab-content">
+            <section id="experience">
+                <h2 class="section-title">Professional Experience</h2>
+                <div class="timeline">
+                    <!-- Providence India -->
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-header">
+                            <div>
+                                <p class="role">Digital Manager</p>
+                                <h3 class="company">Providence India</h3>
+                            </div>
+                            <span class="period">Current</span>
                         </div>
-                        <span class="period">2017 - 2019</span>
+                        <ul class="achievements">
+                            <li>Led cross-functional team of 8-12 analysts and engineers in web analytics</li>
+                            <li>Strengthened frameworks, reducing reporting discrepancies by 30-40%</li>
+                            <li>Partnered with marketing stakeholders delivering insights for 15+ campaigns monthly</li>
+                            <li>Ensured data integrity across all digital properties</li>
+                        </ul>
                     </div>
-                    <ul class="achievements">
-                        <li>Managed Google Analytics 360 implementations for 25+ enterprise clients</li>
-                        <li>Led team of 4-6 analysts, achieving 92% client satisfaction</li>
-                        <li>Developed measurement frameworks influencing $5M+ in annual marketing spend</li>
-                    </ul>
-                </div>
 
-                <!-- US Tech Solutions -->
-                <div class="timeline-item fade-in">
-                    <div class="timeline-header">
-                        <div>
-                            <p class="role">Digital Campaign Manager</p>
-                            <h3 class="company">US Tech Solutions</h3>
+                    <!-- Salesforce -->
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-header">
+                            <div>
+                                <p class="role">Senior Product Success</p>
+                                <h3 class="company">Salesforce</h3>
+                            </div>
+                            <span class="period">2021 - 2024</span>
                         </div>
-                        <span class="period">2016 - 2017</span>
-                    </div>
-                    <ul class="achievements">
-                        <li>Managed digital campaigns with $500K+ monthly ad spend for Dell</li>
-                        <li>Achieved 25% CTR improvement</li>
-                        <li>Reduced CPA by 18% across 30+ campaigns</li>
-                    </ul>
-                </div>
-
-                <!-- Google India -->
-                <div class="timeline-item fade-in">
-                    <div class="timeline-header">
-                        <div>
-                            <p class="role">Quality Analyst</p>
-                            <h3 class="company">Google India</h3>
+                        <ul class="achievements">
+                            <li>Guided 50+ enterprise customers through virtual Success programs</li>
+                            <li>Achieved 35% increase in Marketing Cloud feature adoption</li>
+                            <li>Delivered Blueprint best practices for Salesforce Marketing Cloud</li>
+                            <li>Provided technical guidance for Sales Cloud and Service Cloud implementations</li>
+                        </ul>
+                        <div class="metrics">
+                            <div class="metric">
+                                <div class="metric-value">90%</div>
+                                <div class="metric-label">Retention Rate</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">$2M+</div>
+                                <div class="metric-label">Annual Renewals</div>
+                            </div>
                         </div>
-                        <span class="period">2016</span>
                     </div>
-                    <ul class="achievements">
-                        <li>Conducted quality assurance on 500+ AdWords accounts monthly</li>
-                        <li>Reduced account review time by 20% through service optimization</li>
-                    </ul>
-                </div>
 
-                <!-- Facebook -->
-                <div class="timeline-item fade-in">
-                    <div class="timeline-header">
-                        <div>
-                            <p class="role">Content Reviewer</p>
-                            <h3 class="company">Facebook</h3>
+                    <!-- Assembly Global -->
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-header">
+                            <div>
+                                <p class="role">MarTech Team Lead</p>
+                                <h3 class="company">Assembly Global</h3>
+                            </div>
+                            <span class="period">2020 - 2021</span>
                         </div>
-                        <span class="period">2014 - 2016</span>
+                        <ul class="achievements">
+                            <li>Led MarTech team of 5-7 specialists for 20+ complex Ad Tech stack integrations</li>
+                            <li>Defined data collection frameworks for 15+ clients</li>
+                            <li>Improved campaign deployment efficiency by 35%</li>
+                        </ul>
                     </div>
-                    <ul class="achievements">
-                        <li>Reviewed 300+ content violations daily with 95% accuracy</li>
-                        <li>Performed quality checks on 500+ advertising assets weekly</li>
-                        <li>Reduced policy violations by 30%</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
 
-        <!-- Certifications -->
-        <section id="certifications">
-            <h2 class="section-title">Certifications & Expertise</h2>
-            <div class="cert-grid">
-                <div class="cert-badge fade-in">
-                    <div class="cert-icon">🤖</div>
-                    <h4>Salesforce Certified AI Associate</h4>
-                    <p>Advanced AI integration expertise</p>
-                </div>
-                <div class="cert-badge fade-in">
-                    <div class="cert-icon">✨</div>
-                    <h4>Generative AI Fundamentals</h4>
-                    <p>Academy Accreditation</p>
-                </div>
-                <div class="cert-badge fade-in">
-                    <div class="cert-icon">💾</div>
-                    <h4>SQL for Data Science</h4>
-                    <p>Structured Query Language</p>
-                </div>
-                <div class="cert-badge fade-in">
-                    <div class="cert-icon">📧</div>
-                    <h4>Marketing Cloud</h4>
-                    <p>Customer journey analysis</p>
-                </div>
-                <div class="cert-badge fade-in">
-                    <div class="cert-icon">🎯</div>
-                    <h4>AdWords Certification</h4>
-                    <p>Google advertising platform</p>
-                </div>
-                <div class="cert-badge fade-in">
-                    <div class="cert-icon">☁️</div>
-                    <h4>Salesforce Data Cloud</h4>
-                    <p>GA4 Certified</p>
-                </div>
-            </div>
-        </section>
+                    <!-- Accenture -->
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-header">
+                            <div>
+                                <p class="role">Analytics Lead</p>
+                                <h3 class="company">Accenture</h3>
+                            </div>
+                            <span class="period">2017 - 2019</span>
+                        </div>
+                        <ul class="achievements">
+                            <li>Managed Google Analytics 360 implementations for 25+ enterprise clients</li>
+                            <li>Led team of 4-6 analysts, achieving 92% client satisfaction</li>
+                            <li>Developed measurement frameworks influencing $5M+ in annual marketing spend</li>
+                        </ul>
+                    </div>
 
-        <!-- Education -->
-        <section id="education">
-            <h2 class="section-title">Education & Recognition</h2>
-            <div class="education-grid">
-                <div class="education-card fade-in">
-                    <h3 class="degree">Master's Degree</h3>
-                    <p class="institution">Sikkim Manipal University</p>
-                    <p><strong>Project Management</strong></p>
-                    <p class="edu-period">2013 - 2015</p>
-                </div>
-                <div class="education-card fade-in">
-                    <h3 class="degree">B.Tech</h3>
-                    <p class="institution">Jyothishmathi College of Engineering & Technology</p>
-                    <p><strong>Computer Science & Engineering</strong></p>
-                    <p class="edu-period">2007 - 2011</p>
-                </div>
-            </div>
-            
-            <div style="margin-top: 40px;" class="fade-in">
-                <h3 style="font-size: 1.5rem; margin-bottom: 20px; color: var(--dark);">Recognition & Awards</h3>
-                <div style="background: white; padding: 30px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);">
-                    <p style="font-size: 1.1rem; margin-bottom: 10px;"><strong>🏆 Numero Uno</strong></p>
-                    <p style="font-size: 1.1rem;"><strong>🤝 Trust Builder Impact</strong></p>
-                </div>
-            </div>
+                    <!-- US Tech Solutions -->
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-header">
+                            <div>
+                                <p class="role">Digital Campaign Manager</p>
+                                <h3 class="company">US Tech Solutions</h3>
+                            </div>
+                            <span class="period">2016 - 2017</span>
+                        </div>
+                        <ul class="achievements">
+                            <li>Managed digital campaigns with $500K+ monthly ad spend for Dell</li>
+                            <li>Achieved 25% CTR improvement</li>
+                            <li>Reduced CPA by 18% across 30+ campaigns</li>
+                        </ul>
+                    </div>
 
-            <div style="margin-top: 40px;" class="fade-in">
-                <h3 style="font-size: 1.5rem; margin-bottom: 20px; color: var(--dark);">Languages</h3>
-                <div style="background: white; padding: 30px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);">
-                    <p style="color: var(--text-light); line-height: 2;">
-                        <strong>English</strong> • <strong>Hindi</strong> • <strong>Telugu</strong> • <strong>Gujarati</strong>
-                    </p>
-                    <p style="margin-top: 15px; color: var(--text-light); font-size: 0.95rem;">
-                        Enabling effective communication across diverse teams and markets
-                    </p>
+                    <!-- Google India -->
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-header">
+                            <div>
+                                <p class="role">Quality Analyst</p>
+                                <h3 class="company">Google India</h3>
+                            </div>
+                            <span class="period">2016</span>
+                        </div>
+                        <ul class="achievements">
+                            <li>Conducted quality assurance on 500+ AdWords accounts monthly</li>
+                            <li>Reduced account review time by 20% through service optimization</li>
+                        </ul>
+                    </div>
+
+                    <!-- Facebook -->
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-header">
+                            <div>
+                                <p class="role">Content Reviewer</p>
+                                <h3 class="company">Facebook</h3>
+                            </div>
+                            <span class="period">2014 - 2016</span>
+                        </div>
+                        <ul class="achievements">
+                            <li>Reviewed 300+ content violations daily with 95% accuracy</li>
+                            <li>Performed quality checks on 500+ advertising assets weekly</li>
+                            <li>Reduced policy violations by 30%</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
+        </div>
+
+        <!-- Certifications Tab -->
+        <div id="certifications-tab" class="tab-content">
+            <section id="certifications">
+                <h2 class="section-title">Certifications & Expertise</h2>
+                <div class="cert-grid">
+                    <div class="cert-badge fade-in">
+                        <div class="cert-icon">🤖</div>
+                        <h4>Salesforce Certified AI Associate</h4>
+                        <p>Advanced AI integration expertise</p>
+                    </div>
+                    <div class="cert-badge fade-in">
+                        <div class="cert-icon">✨</div>
+                        <h4>Generative AI Fundamentals</h4>
+                        <p>Academy Accreditation</p>
+                    </div>
+                    <div class="cert-badge fade-in">
+                        <div class="cert-icon">💾</div>
+                        <h4>SQL for Data Science</h4>
+                        <p>Structured Query Language</p>
+                    </div>
+                    <div class="cert-badge fade-in">
+                        <div class="cert-icon">📧</div>
+                        <h4>Marketing Cloud</h4>
+                        <p>Customer journey analysis</p>
+                    </div>
+                    <div class="cert-badge fade-in">
+                        <div class="cert-icon">🎯</div>
+                        <h4>AdWords Certification</h4>
+                        <p>Google advertising platform</p>
+                    </div>
+                    <div class="cert-badge fade-in">
+                        <div class="cert-icon">☁️</div>
+                        <h4>Salesforce Data Cloud</h4>
+                        <p>GA4 Certified</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Education Tab -->
+        <div id="education-tab" class="tab-content">
+            <section id="education">
+                <h2 class="section-title">Education & Recognition</h2>
+                <div class="education-grid">
+                    <div class="education-card fade-in">
+                        <h3 class="degree">Master's Degree</h3>
+                        <p class="institution">Sikkim Manipal University</p>
+                        <p><strong>Project Management</strong></p>
+                        <p class="edu-period">2013 - 2015</p>
+                    </div>
+                    <div class="education-card fade-in">
+                        <h3 class="degree">B.Tech</h3>
+                        <p class="institution">Jyothishmathi College of Engineering & Technology</p>
+                        <p><strong>Computer Science & Engineering</strong></p>
+                        <p class="edu-period">2007 - 2011</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 40px;" class="fade-in">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 20px; color: var(--dark);">Recognition & Awards</h3>
+                    <div style="background: white; padding: 30px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);">
+                        <p style="font-size: 1.1rem; margin-bottom: 10px;"><strong>🏆 Numero Uno</strong></p>
+                        <p style="font-size: 1.1rem;"><strong>🤝 Trust Builder Impact</strong></p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px;" class="fade-in">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 20px; color: var(--dark);">Languages</h3>
+                    <div style="background: white; padding: 30px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);">
+                        <p style="color: var(--text-light); line-height: 2;">
+                            <strong>English</strong> • <strong>Hindi</strong> • <strong>Telugu</strong> • <strong>Gujarati</strong>
+                        </p>
+                        <p style="margin-top: 15px; color: var(--text-light); font-size: 0.95rem;">
+                            Enabling effective communication across diverse teams and markets
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
 
     <!-- Contact Section -->
     <section class="contact-section">
@@ -922,8 +1135,33 @@
         <p>&copy; 2026 Chirag Chhatbar. All rights reserved. | Marketing Analytics Leader</p>
     </footer>
 
-    <!-- JavaScript for scroll animations -->
+    <!-- JavaScript for tabs and animations -->
     <script>
+        // Tab switching function
+        function openTab(evt, tabName) {
+            // Hide all tab content
+            var tabContent = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabContent.length; i++) {
+                tabContent[i].classList.remove("active");
+            }
+
+            // Remove active class from all tab buttons
+            var tabButtons = document.getElementsByClassName("tab-button");
+            for (var i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+
+            // Show the selected tab and mark button as active
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+
+            // Scroll to top of content
+            window.scrollTo({
+                top: document.querySelector('.nav-tabs').offsetTop,
+                behavior: 'smooth'
+            });
+        }
+
         // Intersection Observer for scroll animations
         const observerOptions = {
             threshold: 0.1,
